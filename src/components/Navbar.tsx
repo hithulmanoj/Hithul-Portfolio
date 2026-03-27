@@ -3,7 +3,6 @@ import { motion } from "framer-motion";
 
 const navItems = [
   { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
   { label: "Skills", href: "#skills" },
   { label: "Projects", href: "#projects" },
   { label: "Training", href: "#training" },
@@ -18,26 +17,7 @@ const Navbar = () => {
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", onScroll);
-
-    // Active section detection
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const label = navItems.find((item) => item.href.slice(1) === entry.target.id)?.label;
-            if (label) setActive(label);
-          }
-        });
-      },
-      { threshold: 0.5, rootMargin: "-10% 0px -10% 0px" }
-    );
-
-    document.querySelectorAll("section[id]").forEach((section) => observer.observe(section));
-
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      observer.disconnect();
-    };
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
   return (
@@ -69,12 +49,21 @@ const Navbar = () => {
             </a>
           ))}
         </div>
-        <a
-          href="#contact"
-          className="hidden md:block px-4 py-2 text-sm font-medium rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
-        >
-          Hire Me
-        </a>
+        <div className="hidden md:flex items-center gap-4">
+          <a
+            href="/hithul pep cv.pdf"
+            download="Hithul_Manoj_Resume.pdf"
+            className="px-4 py-2 text-sm font-medium rounded-lg border border-primary/50 text-primary hover:bg-primary/10 transition-colors"
+          >
+            Resume
+          </a>
+          <a
+            href="#contact"
+            className="px-4 py-2 text-sm font-medium rounded-lg bg-primary text-primary-foreground hover:bg-primary/90 transition-colors"
+          >
+            Hire Me
+          </a>
+        </div>
       </div>
     </motion.nav>
   );
