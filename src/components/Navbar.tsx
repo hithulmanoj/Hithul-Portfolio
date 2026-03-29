@@ -3,6 +3,7 @@ import { motion } from "framer-motion";
 
 const navItems = [
   { label: "Home", href: "#home" },
+  { label: "About", href: "#about" },
   { label: "Skills", href: "#skills" },
   { label: "Projects", href: "#projects" },
   { label: "Training", href: "#training" },
@@ -52,7 +53,8 @@ const Navbar = () => {
         <div className="hidden md:flex items-center gap-4">
           <a
             href="/hithul pep cv.pdf"
-            download="Hithul_Manoj_Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
             className="px-4 py-2 text-sm font-medium rounded-lg border border-primary/50 text-primary hover:bg-primary/10 transition-colors"
           >
             Resume

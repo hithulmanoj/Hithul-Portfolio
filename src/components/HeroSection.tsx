@@ -8,7 +8,7 @@ const HeroSection = () => {
       <ParticleCanvas />
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-background z-10" />
 
-      <div className="relative z-20 text-center px-6 max-w-4xl">
+      <div className="relative z-20 text-center px-6 max-w-4xl pt-20">
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -63,10 +63,11 @@ const HeroSection = () => {
         >
           <a
             href="/hithul pep cv.pdf"
-            download="Hithul_Manoj_Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
             className="px-8 py-3 rounded-xl bg-primary text-primary-foreground font-semibold hover:bg-primary/90 transition-all duration-300 box-glow"
           >
-            Download Resume
+            View Resume
           </a>
           <div className="flex gap-4">
             {[
